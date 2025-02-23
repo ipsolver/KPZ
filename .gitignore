@@ -1,0 +1,27 @@
+# Rider + C# + VS
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.idea/
+.vs/
+*.csproj.user
+*.cache
+*.ldb
+
+bin/
+obj/
+out/
+
+*.log
+*.tmp
+*.bak
+*.swp
+*.sln*
+*.csproj*
+
+secrets.json
+.env
+
+packages/
+project.lock.json
