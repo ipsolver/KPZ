@@ -8,13 +8,13 @@
 - [`Zoo.cs`](https://github.com/ipsolver/KPZ/blob/lab-1/pr1/pr1/Services/Zoo.cs) – is only responsible for managing the zoo.
 - [`Enclosure.cs`](https://github.com/ipsolver/KPZ/blob/lab-1/pr1/pr1/Models/Enclosure.cs) – is only responsible for managing the enclosures.
 - [`Food.cs`](https://github.com/ipsolver/KPZ/blob/lab-1/pr1/pr1/Models/Food.cs) – stores information about food, but does not deal with feeding.
-- [`Staff.cs`](https://github.com/ipsolver/KPZ/blob/lab-1/pr1/pr1/Models/Staff.cs) - is responsible for storing information and functionality regarding zoo employees.
+- [`Staff.cs`](https://github.com/ipsolver/KPZ/blob/lab-1/pr1/pr1/Models/Staff.cs) - is responsible for storing information and functionality regarding zoo employees. 
 
-  Each class has a clear responsibility.
+    Each class has a clear responsibility.
 ## Open/Closed Principle
 `The gist:` The code should be open for extension, but closed for modification.
 
-You can add new entities to the program simply by creating classes and adding them in the [Zoo "manager"](https://github.com/ipsolver/KPZ/blob/lab-1/pr1/pr1/Services/Zoo.cs).
+You can add new entities to the program simply by creating classes and adding them in the [Zoo "manager"](https://github.com/ipsolver/KPZ/blob/lab-1/pr1/pr1/Services/Zoo.cs). 
 
 You can also specifically add functionality through factory methods in [AnimalFactory](https://github.com/ipsolver/KPZ/blob/lab-1/pr1/pr1/Services/AnimalFactory.cs#L14-L17) and if you need to add some logic with existing animals, you just need to write in this place.
 You can add new entities to the program simply by creating classes and adding them in the Zoo "manager"
