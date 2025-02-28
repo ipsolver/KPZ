@@ -27,3 +27,37 @@ The code can be extended without changing existing classes!
 ## Liskov Substitution Principle
 `The gist:` Subclass objects must correctly replace parent class objects.
 
+Animal implements [IAnimal](https://github.com/ipsolver/KPZ/blob/lab-1/pr1/pr1/Models/IAnimal.cs), and all animals are used through IAnimal without any problems.
+If we cast Animal to List<IAnimal>, nothing will break.
+
+## Interface Segregation Principle
+`The gist:` Don't force classes to implement methods they don't need.
+
+I removed `IFeedable`, which was originally an idea, but it turned out to be redundant since all IAnimals eat anyway.
+No unnecessary interfaces were created that don't make sense.
+Each interface ([IZooReport](https://github.com/ipsolver/KPZ/blob/lab-1/pr1/pr1/Services/IZooReport.cs), [IAnimal](https://github.com/ipsolver/KPZ/blob/lab-1/pr1/pr1/Models/IAnimal.cs)) only has the necessary methods.
+
+## Dependency Inversion Principle
+`The gist:` Code should depend on abstractions rather than concrete classes.
+
+And there great example with abstraction [IAnimal](https://github.com/ipsolver/KPZ/blob/lab-1/pr1/pr1/Models/IAnimal.cs) and simple class [Animal](https://github.com/ipsolver/KPZ/blob/lab-1/pr1/pr1/Models/Animal.cs). In the code I use interfaces for interactions and working with [methods](https://github.com/ipsolver/KPZ/blob/lab-1/pr1/pr1/Models/IAnimal.cs#L9-L17).
+
+<hr>
+
+## DRY (Don't repeat yourself)
+`The gist:` Avoid code duplication.
+
+- [AnimalFactory](https://github.com/ipsolver/KPZ/blob/lab-1/pr1/pr1/Services/AnimalFactory.cs#L12-L18) creates animals, so we don't write `new Animal(...)` in Program.cs manually.
+- Also in special case we can consider [Zoo.GenerateReport()](https://github.com/ipsolver/KPZ/blob/lab-1/pr1/pr1/Services/Zoo.cs#L32-L65) for this principle. It doesn't duplicate code - all the data collection logic is moved to a separate method (in another way we need to write all small calls to object lists).
+- And many different small but common functions are separate methods (for example, getters, setters, calculating salary).
+
+## YAGNI (You Ain’t Gonna Need It)
+`The gist:` Don't add code or functionality that "might be needed in the future" but isn't currently used.
+
+- I removed the `IFeedable` interface because it's more universal and rational to do it through the [Feed()](https://github.com/ipsolver/KPZ/blob/lab-1/pr1/pr1/Models/IAnimal.cs#L16) method.
+- I also had classes for classifying animals (Mammals, Birds, Insects) and through the factory I planned to work with instances of certain classes, although in this work it will already be a "superstructure" and may somewhat complicate both the initial design of the project and understanding in general.
+
+- And I can say that my program is user-friendly and it's clear and clearly divided into general abstractions, which makes it more versatile and effective in the perspective of laboratory work and the zoo accounting system.
+
+<hr>
+## UML-diagram
