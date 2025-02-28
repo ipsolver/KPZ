@@ -60,4 +60,7 @@ And there great example with abstraction [IAnimal](https://github.com/ipsolver/K
 - And I can say that my program is user-friendly and it's clear and clearly divided into general abstractions, which makes it more versatile and effective in the perspective of laboratory work and the zoo accounting system.
 
 <hr>
+
 ## UML-diagram
+
+![My diagram](https://github.com/ipsolver/KPZ/blob/lab-1/pr1/pr1/Zoo.drawio.png)
