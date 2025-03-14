@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace pr2.Task3
 {
-    public class Authenticator
+    public sealed  class Authenticator
     {
         private static Authenticator instance;
         private static readonly object lockObject = new object();
