@@ -114,6 +114,41 @@ Authenticating user2 with password your_password
 Are user1 and user2 the same? True
 ```
 The check was done with ReferenceEquals
+
+<hr>
+
+## Prototype
+### Structure
+1) [Class `Virus`](https://github.com/ipsolver/KPZ/blob/lab-2/pr2/pr2/Task4/Virus.cs)
+
+Properties:
+- float masa { get; set; }
+- int age { get; set; }
+- string name { get; set; }
+- string type { get; set; }
+- List<Virus> children { get; set; }
+
+Methods:
+
+- [constructor Virus(float masa, int age, string name, string type)](https://github.com/ipsolver/KPZ/blob/lab-2/pr2/pr2/Task4/Virus.cs#L18)
+- [void AddChild(Virus child)](https://github.com/ipsolver/KPZ/blob/lab-2/pr2/pr2/Task4/Virus.cs#L26) - method for adding "children" and creates generations
+- [void Show(int level=0)](https://github.com/ipsolver/KPZ/blob/lab-2/pr2/pr2/Task4/Virus.cs#L30) - method for output info about group viruses from the class
+- [object Clone()](https://github.com/ipsolver/KPZ/blob/lab-2/pr2/pr2/Task4/Virus.cs#L38) - standart object method for clone 
+
+Interfaces:
+- `ICloneable` - builded interface for making copies
+
+Result:
+- Shallow Copy using `MemberwiseClone()`
+This creates a shallow copy, duplicating the primitive fields
+- [Deep Copy of children List](https://github.com/ipsolver/KPZ/blob/lab-2/pr2/pr2/Task4/Virus.cs#L41-L46)
+A new list is created to hold the deep-copied children.
+Each child virus is recursively cloned and added to the new list.
+
+- Each cloned Virus instance has its own independent copy of the children list.
+- Modifying the child elements of the original Virus does not affect the cloned instance.
+
+
 <hr>
 
 ## UML-diagrams
