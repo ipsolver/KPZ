@@ -126,7 +126,7 @@ Properties:
 - int age { get; set; }
 - string name { get; set; }
 - string type { get; set; }
-- List<Virus> children { get; set; }
+- List< 'Virus' > children { get; set; }
 
 Methods:
 
@@ -148,6 +148,81 @@ Each child virus is recursively cloned and added to the new list.
 - Each cloned Virus instance has its own independent copy of the children list.
 - Modifying the child elements of the original Virus does not affect the cloned instance.
 
+
+<hr>
+
+## Builder
+### Structure
+
+1) Interfaces:
+- [ICharacter](https://github.com/ipsolver/KPZ/blob/lab-2/pr2/pr2/Task5/Interfaces/ICharacter.cs)
+Defines the basic interface for characters.
+
+Properties:
+- - string Name { get; set; }
+- - int Height { get; set; }
+- - string Build { get; set; }
+- - string HairColor { get; set; }
+- - string EyeColor { get; set; }
+- - string Clothing { get; set; }
+- - List<'string'> Inventory { get; set; }
+
+Method:
+- - void Info();
+
+- [ICharacterBuilder](https://github.com/ipsolver/KPZ/blob/lab-2/pr2/pr2/Task5/Interfaces/ICharacterBuilder.cs)
+Character creation interface with parameter setting methods.
+
+Methods:
+- - ICharacterBuilder SetName(string name);
+- - ICharacterBuilder SetHeight(int height);
+- - ICharacterBuilder SetBuild(string build);
+- - ICharacterBuilder SetHairColor(string hairColor);
+- - ICharacterBuilder SetEyeColor(string eyeColor);
+- - ICharacterBuilder SetClothing(string clothing);
+- - ICharacterBuilder AddInventoryItem(string item);
+- - ICharacterBuilder AddMove(string move);
+- - ICharacter Build();
+
+2) Classes:
+- [Character](https://github.com/ipsolver/KPZ/blob/lab-2/pr2/pr2/Task5/Classes/Character.cs) — implements the ICharacter interface, represents the final character.
+- [HeroBuilder](https://github.com/ipsolver/KPZ/blob/lab-2/pr2/pr2/Task5/Classes/HeroBuilder.cs) — a builder for creating a hero character.
+- [EnemyBuilder](https://github.com/ipsolver/KPZ/blob/lab-2/pr2/pr2/Task5/Classes/EnemyBuilder.cs) — a builder for creating an enemy character.
+- [CharacterDirector](https://github.com/ipsolver/KPZ/blob/lab-2/pr2/pr2/Task5/Classes/CharacterDirector.cs) — a class that manages the character building process.
+
+3) Main methods:
+- [CreateHero(ICharacterBuilder builder)](https://github.com/ipsolver/KPZ/blob/lab-2/pr2/pr2/Task5/Classes/CharacterDirector.cs#L19) — creates a hero with certain characteristics.
+- [CreateEnemy(ICharacterBuilder builder)](https://github.com/ipsolver/KPZ/blob/lab-2/pr2/pr2/Task5/Classes/CharacterDirector.cs#L34) — creates an enemy with certain characteristics.
+
+### Usage
+1) Flexible creating builders
+
+```
+ICharacterBuilder heroBuilder = new HeroBuilder();
+ICharacterBuilder enemyBuilder = new EnemyBuilder();
+```
+2) Creating characters
+Characters are created using the CharacterDirector class, which takes a builder as input and constructs the character. You can create heroes and enemies
+```
+CharacterDirector director = new CharacterDirector(heroBuilder);
+ICharacter hero = director.CreateHero(heroBuilder);
+Console.WriteLine("Герой:");
+hero.Info();
+
+CharacterDirector director = new CharacterDirector(enemyBuilder);
+ICharacter enemy = director.CreateEnemy(enemyBuilder);
+Console.WriteLine("Ворог:");
+enemy.Info();
+```
+3) Displaying character information
+
+```
+hero.Info();
+enemy.Info();
+```
+## Result
+
+This implementation allows you to flexibly create different characters, change their characteristics, and expand the game's capabilities using the "Builder" pattern.
 
 <hr>
 
