@@ -127,6 +127,16 @@ namespace pr3
             Console.WriteLine("\nLightHTML Output:");
             Console.WriteLine(div.Render());
 
+///////////////////////////////////////////////////////////////////////////
+            var loger1 = new Loger("Loger1");
+            var loger2 = new Loger("Loger2");
+            header.AddEventListener("click", loger1);
+            ul.AddEventListener("mouseover", loger2);
+
+            Console.WriteLine("\n----------------------------Events:");
+            header.Click();
+            ul.MouseOver();
+
             //Завдання 6
 
             string contenter = "../../../content.txt";
