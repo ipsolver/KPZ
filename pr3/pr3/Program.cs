@@ -126,6 +126,15 @@ namespace pr3
 
             Console.WriteLine("\nLightHTML Output:");
             Console.WriteLine(div.Render());
+            ////////////////////////////////////////////////////////////////
+
+            var image1 = new LightImageNode("images/photo.png");
+            var image2 = new LightImageNode("https://example.com/image.jpg");
+
+            Console.WriteLine(image1.Render());
+            Console.WriteLine(image2.Render());
+
+
 
             //Завдання 6
 
