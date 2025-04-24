@@ -126,16 +126,15 @@ namespace pr3
 
             Console.WriteLine("\nLightHTML Output:");
             Console.WriteLine(div.Render());
+            ////////////////////////////////////////////////////////////////
 
-///////////////////////////////////////////////////////////////////////////
-            var loger1 = new Loger("Loger1");
-            var loger2 = new Loger("Loger2");
-            header.AddEventListener("click", loger1);
-            ul.AddEventListener("mouseover", loger2);
+            var image1 = new LightImageNode("images/photo.png");
+            var image2 = new LightImageNode("https://example.com/image.jpg");
 
-            Console.WriteLine("\n----------------------------Events:");
-            header.Click();
-            ul.MouseOver();
+            Console.WriteLine(image1.Render());
+            Console.WriteLine(image2.Render());
+
+
 
             //Завдання 6
 
